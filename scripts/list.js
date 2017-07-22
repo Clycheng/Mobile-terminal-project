@@ -15,16 +15,20 @@ $.ajax({
     }
 });
 //获取内容列表
-var cat_id = GetQueryString("id");
-$.ajax({
-    "url": "http://h6.duchengjiu.top/shop/api_goods.php?cat_id="+cat_id,
-    "type": "get",
-    "dataType": "JSON",
-    "success": function(response) {
-        var listVar = document.getElementById("list-var");
-        var listcontet = listVar.getElementsByTagName("ul");
-        var oLi = document.createElement("li");
+function shop_good() {
+    var cat_id = GetQueryString("id");
+    $.ajax({
+        "url": "http://h6.duchengjiu.top/shop/api_goods.php?pagesize=1&cat_id"+cat_id,
+        "type": "get",
+        "dataType": "JSON",
+        "success": function(response) {
+            console.log(response);
+            for (var i = 0; i = response.data.length; i ++){
+               var a =  $(".shop-list-content").clone();
+               console.log(a);
+            }
+        }
+    })
+}
+shop_good();
 
-
-    }
-})
