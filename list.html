@@ -6,16 +6,50 @@
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>一号店商品分类</title>
+    <link rel="stylesheet" media= "screen (min-width: 768px)"  href="styles/list768.css">
     <link rel="stylesheet" href="styles/bootstrap.css">
     <link rel="stylesheet" href="styles/list.css">
 </head>
 <body>
-    <header>
-        <div class = "return-index">
-            <a href="index.html"><span class="glyphicon glyphicon-menu-left" aria-hidden="true"></span></a>
+<!--头部-->
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false" aria-controls="navbar">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="navbar-brand" href="index.html">一号店</a>
+            </div>
+            <div id="navbar" class="navbar-collapse collapse">
+                <ul id = "shop-list" class="nav navbar-nav navbar-right">
+                    <li><a>Dashboard</a></li>
+                    <li><a >Settings</a></li>
+                    <li><a >Profile</a></li>
+                    <li><a >Help</a></li>
+                    <li><a >Help</a></li>
+                    <li><a >Help</a></li>
+                    <li><a >Help</a></li>
+                    <li><a >Help</a></li>
+                    <li><a >Help</a></li>
+                    <li><a >Help</a></li>
+                </ul>
+                <form class="navbar-form navbar-right">
+                    <input type="text" class="form-control" placeholder="请输入搜索内容">
+                </form>
+            </div>
         </div>
+    </nav>
+<!--内容-->
+    <section>
+        <div id = "list-var" class = "list-content">
+            <ul>
+            </ul>
+        </div>
+    </section>
 
-    </header>
 <script src = "scripts/jquery.js"></script>
 <script src = "scripts/bootstrap.js"></script>
 <script src = "scripts/list.js"></script>

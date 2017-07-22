@@ -1,36 +1,35 @@
 html {
-     font-size: 14px;
+  font-size: 14px;
 }
-header {
-     width: 100%;
-     height: 3rem;
-     background-color: rgba(22,159,133,0.5);
+.navbar-inverse {
+  background: #169f85;
+  border-color: #fff;
+  color: #fff;
 }
-.return-index {
-     position: relative;
-     left:5%;
-     top: 20%;
-     width: 2rem;
-     height: 2rem;
+.navbar-inverse .navbar-toggle {
+  border-color: #fff;
 }
-.glyphicon.glyphicon-menu-left::before {
-     left:10%;
-     top:10%;
-     font-size: 1.5rem;
-     font-weight: bold;
-     color: white;
+.navbar-inverse .navbar-toggle:hover {
+  background: none;
 }
-.glyphicon.glyphicon-menu-left::before:hover {
-     color: ;
+.navbar-inverse .navbar-brand {
+  color: #fff;
 }
-.col-lg-6 {
-     left: 10%;
-     top: -58%;
+.navbar-inverse .navbar-nav > li > a {
+  color: #fff;
+  float: left;
+  padding: 5% 8%;
 }
-.input-group {
-     width: 65%;
+.navbar-inverse .navbar-collapse,
+.navbar-inverse .navbar-form {
+  border-color: #fff;
 }
-.input-group-btn {
-     width: 10%;
-     height: 10%;
+section {
+  width: 100%;
+  height: 100%;
+}
+.list-content {
+  width: 100%;
+  height: 100%;
+  background: #f00;
 }
