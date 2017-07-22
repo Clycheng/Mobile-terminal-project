@@ -20,7 +20,17 @@ header {
      font-weight: bold;
      color: white;
 }
+.glyphicon.glyphicon-menu-left::before:hover {
+     color: ;
+}
+.col-lg-6 {
+     left: 10%;
+     top: -58%;
+}
 .input-group {
-     left: 20%;
-     top: -55%;
+     width: 65%;
+}
+.input-group-btn {
+     width: 10%;
+     height: 10%;
 }
