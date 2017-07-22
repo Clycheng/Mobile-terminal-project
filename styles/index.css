@@ -109,11 +109,11 @@ nav {
 }
 .advertisement {
     width: 100%;
-    height: 10.33rem;
+    height: 22.33rem;
 }
 .adv-background {
     width: 100%;
-    height: 7.583rem;
+    height: 19.333rem;
     background: url(../images/guanggao.png) no-repeat;
     background-size: 100% 100%;
 }
@@ -168,5 +168,35 @@ nav {
     color:rgb(22,159,133);
 }
 .carousel-indicators {
-    bottom: -28px;
+    bottom: -6px;
 }
+/*内容*/
+.shop-content-box {
+    width: 100%;
+}
+.shop-content-box h3 {
+    text-align: center;
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: #f70f0f;
+    background: -webkit-linear-gradient(left,#00f 44%,#f00 64%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+}
+.shop-box-img {
+    display: inline-block;
+    width: 1.5rem;
+    height: 1.5rem;
+    background: url(../images/jinglingtu.png) no-repeat;
+    background-size: 450% 473%; 
+    background-position: 0px -22px;
+    vertical-align: middle;
+}
+.shop-content li{
+    height: 10rem;
+    border: 1px solid #ccc;
+    margin-right: -1px;
+    margin-bottom: -1px;
+    position: relative;
+}
+.shop-content li

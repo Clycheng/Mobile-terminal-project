@@ -14,7 +14,7 @@ $.ajax({
         console.log(response);
         for (var i = 0; i < response.data.length; i++) {
             var obj = response.data[i];
-            $("#classify-box").append('<li class="col-xs-3"><a href = "list.html?id='+ obj.cat_id +'">' +obj.cat_name+ '</a></li>')
+            $("#classify-box").append('<li class="col-xs-3"><a href = "list.html?id='+ obj.cat_id +'">' +obj.cat_name+ '</a></li>');
         }
     }
 });
