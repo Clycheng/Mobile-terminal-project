@@ -6,7 +6,7 @@ $.ajax({
     "type": "get",
     "dataType": "JSON",
     "success": function (response) {
-        console.log(response);
+        // console.log(response);
         for (var i = 0; i < response.data.length; i++) {
             var obj = response.data[i];
             listinner[i].innerText = obj.cat_name;
@@ -15,13 +15,16 @@ $.ajax({
     }
 });
 //获取内容列表
-function getUrlParam(name) {
-    var reg = new RegExp("(^|&)" + name + "=([^&]*)(&|$)"); //构造一个含有目标参数的正则表达式对象
-    var r = window.location.search.substr(1).match(reg);  //匹配目标参数
-    if (r != null) return unescape(r[2]); return null; //返回参数值
-}
-var id = getUrlParam("url");
-console.log(id);
-// $.ajax({
-//     "url": "http://h6.duchengjiu.top/shop/api_goods.php?cat_id="+token
-// })
+var cat_id = GetQueryString("id");
+$.ajax({
+    "url": "http://h6.duchengjiu.top/shop/api_goods.php?cat_id="+cat_id,
+    "type": "get",
+    "dataType": "JSON",
+    "success": function(response) {
+        var listVar = document.getElementById("list-var");
+        var listcontet = listVar.getElementsByTagName("ul");
+        var oLi = document.createElement("li");
+
+
+    }
+})
