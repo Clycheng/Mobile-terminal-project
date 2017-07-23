@@ -18,3 +18,15 @@ $.ajax({
         }
     }
 });
+$.ajax({
+    "url": "http://h6.duchengjiu.top/shop/api_goods.php?pagesize=100 ",
+    "type": "get",
+    "dataType": "JSON",
+    "success": function (response) {
+        console.log(response);
+        for (var i = 0; i < response.data.length; i++) {
+            var obj = response.data[i];
+            $("#shop-content").append('<li class="col-xs-3"><img src="'+ obj.goods_thumb +'" /><span>'+obj.goods_name+'</span><br/><em>'+ obj.price +'</em></li>');
+        }
+    }
+});
