@@ -17,7 +17,7 @@ $.ajax({
 //获取内容列表
     var cat_id = GetQueryString("id");
     $.ajax({
-        "url": "http://h6.duchengjiu.top/shop/api_goods.php?cat_id"+cat_id,
+        "url": "http://h6.duchengjiu.top/shop/api_goods.php?cat_id="+cat_id,
         "type": "get",
         "dataType": "JSON",
         "success": function(response) {
@@ -51,7 +51,7 @@ $.ajax({
             console.log(oAArr);
             for (var k = 0; k < response.data.length; k ++) {
                 var obj = response.data[k];
-              oAArr[k].href = "detail.html"+obj.cat_id;
+              oAArr[k].href = "detail.html?goods_id="+ obj.goods_id;
               oImgArr[k].src = obj.goods_thumb;
               oHArr[k].innerText = obj.goods_desc;
               oPArr[k].innerText = obj.goods_name;
@@ -60,15 +60,57 @@ $.ajax({
         }
     });
 //懒加载
-$(document).scroll(function(){
-    var $this =$(this),
-        viewH =$(this).height(),//可见高度
-        contentH =$(this).get(0).scrollHeight,//内容高度
-        scrollTop =$(this).scrollTop();//滚动高度
-    //if(contentH - viewH - scrollTop <= 100) { //到达底部100px时,加载新内容
-    if( scrollTop = viewH-contentH) {
-        console.log(1);
-    }
+var page = 1;
+$(window).scroll(function() {
+    var documentHeight = $(document).height();
+    var windowHeight = $(window).height();
+    var scrollTop = document.body.scrollTop;
+        if ((documentHeight - windowHeight) === scrollTop) {
+            page ++;
+            if(page > 10) return;
+            console.log(page);
+            $.ajax({
+                "url": "http://h6.duchengjiu.top/shop/api_goods.php?page="+page,
+                "type": "get",
+                "dataType": "JSON",
+                "success": function (response) {
+                    console.log(response);
+                    var length = response.data.length;
+                    //获取节点 并且克隆对应的数量
+                    var shopList = document.querySelector(".shop-list-content");
+                    var oAArr = [];
+                    var oImgArr = [];
+                    var oHArr = [];
+                    var oPArr = [];
+                    var priceArr = [];
+                    for (var i = 1; i < length; i ++){
+                        var obj = response.data[i];
+                        var cNode = shopList.cloneNode(true);
+                        var oA = cNode.querySelectorAll("a");
+                        oAArr.push(oA);
+                        var oImg = cNode.getElementsByTagName("img")[0];
+                        oImgArr.push(oImg);
+                        var oH = cNode.getElementsByTagName("h3")[0];
+                        oHArr.push(oH);
+                        var oP = cNode.getElementsByTagName("p")[0];
+                        oPArr.push(oP);
+                        var price = cNode.getElementsByTagName("b")[0];
+                        priceArr.push(price);
+                        $("#shop-list-warp").append(cNode);
+                    }
+                    for (var z = 0; z < oAArr.length; z++) {
+                        var obj = response.data[z];
+                        oAArr[z].href = "detail.html?goods_id="+ obj.goods_id;
+                        oImgArr[z].src = obj.goods_thumb;
+                        oHArr[z].innerText = obj.goods_desc;
+                        oPArr[z].innerText = obj.goods_name;
+                        priceArr[z].innerText = "￥" + obj.price;
+                    }
+                    }
+            })
+        }
 });
+
+
 
 
