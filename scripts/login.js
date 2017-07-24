@@ -103,6 +103,7 @@ function Register() {
             } else if(response.code === 0) {
                 $("#warp").css("display","block").css("opacity","1");
                 $("#warp").text("注册成功,已登录");
+                new Login();
                 setTimeout(function () {
                     $("#warp").css("display","none").css("opacity","0");
                     //判断有callbackurl则跳回到指定的callbackurl页面, 否则跳到首页
