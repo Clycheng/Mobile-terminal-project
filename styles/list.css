@@ -2,6 +2,9 @@ html {
   font-size: 14px;
   background: #b8b8b8;
 }
+body {
+  overflow: auto;
+}
 .navbar-inverse {
   background: #169f85;
   border-color: #fff;
@@ -73,17 +76,15 @@ section#list-warp {
   box-sizing: border-box;
 }
 .list-content ul li .return-detail .middle-warp h3 {
-  display: -webkit-box;
+  overflow: hidden;
   margin-top: 0;
   margin-bottom: 0;
   width: 100%;
   height: 50%;
+  line-height: 98%;
   font-size: 1rem;
   color: #1d1d1d;
-  text-overflow: ellipsis;
   word-wrap: break-word;
-  -webkit-line-clamp: 4;
-  -webkit-box-orient: vertical;
   box-sizing: border-box;
 }
 .list-content ul li .return-detail .middle-warp h3:hover {
@@ -125,4 +126,51 @@ section#list-warp {
 .list-content ul li .return-detail .right-warp .join-cart img {
   width: 50%;
   height: 50%;
+}
+.friendly-reminder {
+  display: block;
+  text-align: center;
+}
+footer {
+  float: left;
+  width: 100%;
+  height: 7.142857142857143rem;
+  line-height: 7.142857142857143rem;
+  text-align: center;
+  box-sizing: border-box;
+}
+.footer-hint {
+  display: none;
+  text-align: center;
+  box-sizing: border-box;
+}
+.foot {
+  position: fixed;
+  bottom: 0;
+  width: 100%;
+  height: 3.571428571428572rem;
+  background: #fff;
+}
+.foot ul {
+  -webkit-padding-start: 0;
+}
+.foot ul li {
+  float: left;
+  width: 25%;
+  height: 3.571428571428572rem;
+  line-height: 3.571428571428572rem;
+  text-align: center;
+  list-style: none;
+  background: #169f85;
+  box-sizing: border-box;
+}
+.foot ul li a {
+  display: line-block;
+  height: 65%;
+  width: 80%;
+  padding: 10% 0;
+  color: #fff;
+  font-size: 1.142857142857143px;
+  border-bottom: 2px solid #fff;
+  box-sizing: border-box;
 }
