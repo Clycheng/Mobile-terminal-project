@@ -26,7 +26,10 @@ $.ajax({
         console.log(response);
         for (var i = 0; i < response.data.length; i++) {
             var obj = response.data[i];
-            $("#shop-content").append('<li class="col-xs-3"><img src="'+ obj.goods_thumb +'" /><span>'+obj.goods_name+'</span><br/><em>'+ obj.price +'</em></li>');
+            $("#shop-content").append('<li id = "'+ obj.goods_id + '"class="col-xs-3  hot-shop"><img src="'+ obj.goods_thumb +'" /><span>'+obj.goods_name+'</span><br/><em>¥：'+ obj.price +'</em></li>');
         }
     }
-});
+})
+$(".hot-shop").click(function() {
+	console.log(1);
+})

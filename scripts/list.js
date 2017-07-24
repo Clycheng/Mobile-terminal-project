@@ -1,5 +1,18 @@
 var shopList = document.getElementById("shop-list");
 var listinner = shopList.getElementsByTagName("a");
+//搜索框事件
+var search = document.querySelector(".form-control");
+console.log(search);
+search.onfocus = function () {
+    document.onkeydown = function (event) {
+        event = event || window.event;
+        if ( event.keyCode === 13) {
+            var searchVal = search.value;
+            console.log(searchVal);
+            location.href = "search.html?search_text="+searchVal;
+        }
+    }
+}
 //获取商品分类列表
 $.ajax({
     "url": "http://h6.duchengjiu.top/shop/api_cat.php",
@@ -21,56 +34,66 @@ $.ajax({
         "type": "get",
         "dataType": "JSON",
         "success": function(response) {
-            console.log(response);
-            var length = response.data.length;
-            //获取节点 并且克隆对应的数量
-            var shopList = document.querySelector(".shop-list-content");
-            for (var i = 1; i < length; i ++){
-                 var cNode = shopList.cloneNode(true);
-                $("#shop-list-warp").append(cNode);
+            if (response.code === 1) {
+               $(".shop-list-content").css("display","none");
+               $("#shop-list-warp").append("<div class ='friendly-reminder'>此分类下没有商品</div>")
+            }else {
+                $(".shop-list-content").css("display","block");
             }
-            //获取新的列表内容 存倒数组
-            var newShopList = document.querySelectorAll(".shop-list-content");
-            var oImgArr = [];
-            var oAArr = [];
-            var oHArr = [];
-            var oPArr = [];
-            var priceArr = [];
-            for (var j = 0; j < newShopList.length; j ++){
-                var oA = newShopList[j].getElementsByTagName("a")[0];
-                var oImg = newShopList[j].getElementsByTagName("img")[0];
-                var oH = newShopList[j].getElementsByTagName("h3")[0];
-                var oP = newShopList[j].getElementsByTagName("p")[0];
-                var price = newShopList[j].getElementsByTagName("b")[0];
-                oAArr.push(oA);
-                oImgArr.push(oImg);
-                oHArr.push(oH);
-                oPArr.push(oP);
-                priceArr.push(price);
-            }
-            console.log(oAArr);
-            for (var k = 0; k < response.data.length; k ++) {
-                var obj = response.data[k];
-              oAArr[k].href = "detail.html?goods_id="+ obj.goods_id;
-              oImgArr[k].src = obj.goods_thumb;
-              oHArr[k].innerText = obj.goods_desc;
-              oPArr[k].innerText = obj.goods_name;
-              priceArr[k].innerText = "￥" + obj.price;
-            }
+                console.log(response);
+                var length = response.data.length;
+                //获取节点 并且克隆对应的数量
+                var shopList = document.querySelector(".shop-list-content");
+                for (var i = 1; i < length; i++) {
+                    var cNode = shopList.cloneNode(true);
+                    $("#shop-list-warp").append(cNode);
+                }
+                //获取新的列表内容 存倒数组
+                var newShopList = document.querySelectorAll(".shop-list-content");
+                var oImgArr = [];
+                var oAArr = [];
+                var oHArr = [];
+                var oPArr = [];
+                var priceArr = [];
+                for (var j = 0; j < newShopList.length; j++) {
+                    var oA = newShopList[j].getElementsByTagName("a")[0];
+                    var oImg = newShopList[j].getElementsByTagName("img")[0];
+                    var oH = newShopList[j].getElementsByTagName("h3")[0];
+                    var oP = newShopList[j].getElementsByTagName("p")[0];
+                    var price = newShopList[j].getElementsByTagName("b")[0];
+                    oAArr.push(oA);
+                    oImgArr.push(oImg);
+                    oHArr.push(oH);
+                    oPArr.push(oP);
+                    priceArr.push(price);
+                }
+                console.log(oAArr);
+                for (var k = 0; k < response.data.length; k++) {
+                    var obj = response.data[k];
+                    oAArr[k].href = "detail.html?goods_id=" + obj.goods_id;
+                    oImgArr[k].src = obj.goods_thumb;
+                    oHArr[k].innerText = obj.goods_desc;
+                    oPArr[k].innerText = obj.goods_name;
+                    priceArr[k].innerText = "￥" + obj.price;
+                }
         }
     });
 //懒加载
 var page = 1;
 $(window).scroll(function() {
+    var cat_id = GetQueryString("id");
     var documentHeight = $(document).height();
     var windowHeight = $(window).height();
     var scrollTop = document.body.scrollTop;
         if ((documentHeight - windowHeight) === scrollTop) {
             page ++;
-            if(page > 10) return;
+            if(page > 10) {
+                $(".footer-hint").css("display","block");
+                return;
+            }
             console.log(page);
             $.ajax({
-                "url": "http://h6.duchengjiu.top/shop/api_goods.php?page="+page,
+                "url": "http://h6.duchengjiu.top/shop/api_goods.php?&page="+page,
                 "type": "get",
                 "dataType": "JSON",
                 "success": function (response) {
@@ -110,7 +133,19 @@ $(window).scroll(function() {
             })
         }
 });
-
+//底部设置
+var login = document.getElementById("login");
+if (localStorage.getItem('token')){
+    login.innerText = (localStorage.getItem('username'));
+} else  {
+    login.innerText = "登录";
+}
+login.onclick = function () {
+    if (!localStorage.token) {
+        location.href = 'login.html#callbackurl='+location.href;
+        return;
+    }
+}
 
 
 
