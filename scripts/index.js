@@ -26,10 +26,13 @@ $.ajax({
         console.log(response);
         for (var i = 0; i < response.data.length; i++) {
             var obj = response.data[i];
-            $("#shop-content").append('<li id = "'+ obj.goods_id + '"class="col-xs-3  hot-shop"><img src="'+ obj.goods_thumb +'" /><span>'+obj.goods_name+'</span><br/><em>¥：'+ obj.price +'</em></li>');
+            console.log(obj.goods_id);
+            if(i > 0 && i < 7){
+            $("#shop-content").append('<li class="col-xs-6 hot-shop"><a href="detail.html?goods_id='+obj.goods_id+'"><img src="'+ obj.goods_thumb +'" /><span>'+obj.goods_name+'</span><br/><em>¥：'+ obj.price +'</em></a></li>');
+        		}
+            if(i > 7 && i < 16) {
+            	$("#tone").append('<li><a href="detail.html?goods_id='+obj.goods_id+'"><img src="'+obj.goods_thumb+'"><span>'+ obj.goods_name +'</span></a></li>');
+            }
         }
     }
-})
-$(".hot-shop").click(function() {
-	console.log(1);
-})
+});
