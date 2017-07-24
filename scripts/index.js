@@ -28,10 +28,16 @@ $.ajax({
             var obj = response.data[i];
             console.log(obj.goods_id);
             if(i > 0 && i < 7){
-            $("#shop-content").append('<li class="col-xs-6 hot-shop"><a href="detail.html?goods_id='+obj.goods_id+'"><img src="'+ obj.goods_thumb +'" /><span>'+obj.goods_name+'</span><br/><em>¥：'+ obj.price +'</em></a></li>');
+            		$("#shop-content").append('<li class="col-xs-6 hot-shop"><a href="detail.html?goods_id='+obj.goods_id+'"><img src="'+ obj.goods_thumb +'" /><span>'+obj.goods_name+'</span><br/><em>¥：'+ obj.price +'</em></a></li>');
         		}
             if(i > 7 && i < 16) {
-            	$("#tone").append('<li><a href="detail.html?goods_id='+obj.goods_id+'"><img src="'+obj.goods_thumb+'"><span>'+ obj.goods_name +'</span></a></li>');
+            		$("#tone").append('<li><a href="detail.html?goods_id='+obj.goods_id+'"><img src="'+obj.goods_thumb+'"><span>'+ obj.goods_name +'</span></a></li>');
+            }
+            if(i > 16 && i < 23){
+            		$("#classifyss").append('<li><a href="detail.html?goods_id='+obj.goods_id+'"><img src="'+obj.goods_thumb+'"/><span>'+ obj.goods_name +'</span><em>¥：'+ obj.price +'</em></a></li>');
+            }
+            if(i > 23) {
+            		$("#last-shop").append('<li><a href="detail.html?goods_id='+obj.goods_id+'"><img src="'+obj.goods_thumb+'"/><p>'+ obj.goods_name +'</p><em>¥：'+ obj.price +'</em></a></li>')
             }
         }
     }

@@ -267,16 +267,16 @@ header{
 }
 .tone ul li:nth-child(n)>a>span {
 	display: inline-block;
-	height: 90%;
+	height: 74%;
 	float: right;
 	font-weight: 900;
-	font-size: 1.333rem;
+	font-size: 0.333rem;
 	width: 50%;
 	overflow: hidden;
 	text-overflow: ellipsis;
-	white-space:nowrap;
 	padding: 0rem 0.5rem;
     margin-top: 1rem;
+    margin-bottom:1rem;
 }
 .tone ul li:nth-child(1)>a>img {
 	width: 45%;
@@ -301,6 +301,7 @@ header{
 	text-overflow: ellipsis;
 	white-space:nowrap;
 	text-decoration: underline;
+	margin-bottom: 0px;
 	padding: 0rem 0.5rem;
 	position: absolute;
 	bottom: 0px;
@@ -310,19 +311,96 @@ header{
 	width: 100%;
 	height: 100%;
 }
-.classify {
+.classifyss {
 	width: 100%;
 	background: white;
+	overflow: hidden;
 	border-top: 1px solid #ccc;
 	border-bottom: 1px solid #ccc;
 }
-.classify ul {
+.classifyss ul {
 	width: 100%;
 	overflow: hidden;
 }
-.classify ul li {
-	width: 50%;
-	height: ;
+.classifyss ul li {
+	width: 33.3333%;
+	height: 15.6rem;
+	float: left;
+	list-style: none;
+	border:1px solid #ccc;
+	margin-right: -1px;
+	margin-bottom: -1px;
+}
+.classifyss ul li a {
+	display: block;
+	width:100%;
+	height: 100%;
+	text-decoration: none;
+	color:black;
+	box-sizing: border-box;
+	padding: 0.6rem;
+	overflow: hidden;
+}
+.classifyss ul li a img {
+	width: 99%;
+	height: 66%;
+	margin: 0 auto;
+}
+.classifyss ul li a span {
+	width: 90%;
+	display: block;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	white-space:nowrap;
+}
+.classifyss ul li a em {
+	font-style: normal;
+	color: #f00;
+}
+.three-link {
+	width: 100%;
+	height: 11.02rem;
+	margin-top: 2rem;
+	background: url(../images/333.png) no-repeat;
+	background-size: 100% 100%;
+}
+.last-shop {
+	width: 100%;
+	border-top: 1px solid #ccc;
+}
+.last-shop ul {
+	width: 100%;
+	overflow: hidden;
+	background: white;
+}
+.last-shop ul li {
+	width: 33.333%;
+	height: 18.41rem;
+	list-style: none;
+	float: left;
+}
+.last-shop ul li>a {
+	display: block;
+	width: 100%;
+	height: 100%;
+	text-decoration: none;
+	box-sizing: border-box;
+	padding: 0.7rem;
+	color: black;
+}
+.last-shop ul li>a>img {
+	width: 99%;
+	height: 50%;
+}
+.last-shop ul li>a>p {
+	display: block;
+	width: 90%;
+	height: 30%;
+	overflow: hidden;
+}
+.last-shop ul li>a>em {
+	ont-style: normal;
+	color: #f00;
 }
 .footer {
 	width: 100%;
