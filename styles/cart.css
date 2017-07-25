@@ -27,6 +27,15 @@ header>p {
 	color:red;
 	line-height: 2.5rem;
 	text-indent: 1em;
+	position: relative;
+}
+header>span>a {
+	text-decoration: none;
+	color: #169F85;
+	position: absolute;
+	top:0px;
+	left: -12.5rem;
+	
 }
 .shopping-box {
 	width: 100%;	
@@ -52,7 +61,7 @@ header>p {
 }
 .shopping-shop>p {
 	display: inline-block;
-	width: 57%;
+	width: 52%;
 	height: 66%;
 	position: absolute;
 	top: 1%;
@@ -72,7 +81,7 @@ header>p {
 	position: absolute;
 	border-radius: 10%;
 	bottom: 8%;
-	left:54%;
+	left:60%;
 }
 .number {
 	width: 12%;

@@ -9,16 +9,16 @@
 	
 	    <!-- Bootstrap -->
 	    <link href="styles/bootstrap.min.css" rel="stylesheet">
-		<link rel="stylesheet" href="styles/shopping.css"/>
+		<link rel="stylesheet" href="styles/cart.css"/>
 	</head>
 	<body>
 		<header>
-			<span>购物车</span>
+			<span><a href="javascript:history.go(-1)" class="glyphicon glyphicon-menu-left"></a>购物车</span>
 			<p>满¥69，即可享受8折优惠服务！</p>
 		</header>
 		<section>
-			<div class="shopping-box">
-				<div class="shopping-shop">
+			<div class="shopping-box" id="shopping-box">
+				<!--<div class="shopping-shop">
 					<input type="checkbox" chass="check_box" checked/>
 					<img src="" alt="" />
 					<p>sdaasdadsads</p>
@@ -39,15 +39,20 @@
 						<input type="number"/>
 						<span class="glyphicon glyphicon-trash"></span>
 					</div>
-				</div>
+				</div>-->
 			</div>
 		</section>
 		<footer>
 			<div class="footer">
-				全选：<input type="checkbox" checked/>
-				总价：<span>$123123</span>
+				全选：<input type="checkbox" id="check-all" checked/>
+				总价：<span id="total">$123123</span>
 				<button>去结算</button>
 			</div>
 		</footer>
+		<script src= "scripts/jquery.js"></script>
+    		<script src="scripts/bootstrap.min.js"></script>
+    		<script src = "scripts/common.js"></script>
+    		<script src="scripts/cart.js"></script>
 	</body>
+	
 </html>

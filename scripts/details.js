@@ -29,3 +29,18 @@ $.ajax({
         }
     }
 });
+$("#add-to-cart").click(function(){
+	if (!localStorage.token) {
+        location.href = 'login.html#callbackurl='+location.href;
+        return;
+   }
+	$.ajax({
+	        "url": "http://h6.duchengjiu.top/shop/api_cart.php?token="+localStorage.token,
+	        "type": "POST",
+	        "data": {
+	            "goods_id": goods_id
+	        },
+	        "dataType": "json",
+	        "success": function(response) {}
+	});
+});
