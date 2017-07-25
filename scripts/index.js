@@ -19,7 +19,7 @@ $.ajax({
     }
 });
 $.ajax({
-    "url": "http://h6.duchengjiu.top/shop/api_goods.php?pagesize=100 ",
+    "url": "http://h6.duchengjiu.top/shop/api_goods.php?pagesize=102 ",
     "type": "get",
     "dataType": "JSON",
     "success": function (response) {
