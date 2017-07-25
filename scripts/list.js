@@ -28,7 +28,7 @@ $.ajax({
     }
 });
 //获取内容列表
-    var cat_id = GetQueryString("id");
+    var cat_id = $.getQueryString('id');
     $.ajax({
         "url": "http://h6.duchengjiu.top/shop/api_goods.php?cat_id="+cat_id,
         "type": "get",
@@ -81,7 +81,7 @@ $.ajax({
 //懒加载
 var page = 1;
 $(window).scroll(function() {
-    var cat_id = GetQueryString("id");
+    // var cat_id = $.getQueryString('id');
     var documentHeight = $(document).height();
     var windowHeight = $(window).height();
     var scrollTop = document.body.scrollTop;
@@ -93,7 +93,7 @@ $(window).scroll(function() {
             }
             console.log(page);
             $.ajax({
-                "url": "http://h6.duchengjiu.top/shop/api_goods.php?&page="+page,
+                "url": "http://h6.duchengjiu.top/shop/api_goods.php?cat_id="+cat_id+"&page="+page,
                 "type": "get",
                 "dataType": "JSON",
                 "success": function (response) {

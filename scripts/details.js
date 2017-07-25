@@ -1,23 +1,18 @@
 var navRight = document.getElementById("nav-right");
 navRight.onclick = function() {
-   $("#ul-fold").toggle();
-}
-var cat_id = GetQueryString("goods_id");
+    $("#ul-fold").toggle();
+};
+var goods_id = $.getQueryString('goods_id');
 $.ajax({
-    "url": "http://h6.duchengjiu.top/shop/api_goods.php?goods_id="+cat_id,
+    "url": "http://h6.duchengjiu.top/shop/api_goods.php?goods_id="+goods_id,
     "type": "get",
     "dataType": "JSON",
     "success": function (response) {
-        console.log(response);
-        console.log(response.data.length)
-        for (var i = 0; i < response.data.length-1; i++) {
-            var obj = response.data[i];
-            console.log(obj.goods_id);
+            var obj = response.data[0];
             $("#shop-setails").append('<img src="'+ obj.goods_thumb +'"/>');
             $("#shop-bottom").append('<p>'+obj.goods_name+'</p><span>'+obj.goods_desc+'</span><em>¥：'+obj.price+'</em>');
             $("#restss").append('<span><i>已选择：</i>'+obj.goods_name+'</span>');
         }
-    }
 });
 $.ajax({
     "url": "http://h6.duchengjiu.top/shop/api_goods.php?pagesize=100 ",
@@ -28,10 +23,9 @@ $.ajax({
         var num = parseInt(Math.floor(Math.random()*85+1));
         for (var i = 0; i < response.data.length; i++) {
             var obj = response.data[i];
-            console.log(obj.goods_id);
             if(i>num) {
-            $("#drs-shops").append('<div class="drs-shops"><a href="detail.html?goods_id='+obj.goods_id+'"><img src="'+ obj.goods_thumb +'" /><span>'+obj.goods_name+'</span><br/><p>'+obj.goods_desc+'</p></a></div>');
-        		}
-       }
+                $("#drs-shops").append('<div class="drs-shops"><a href="detail.html?goods_id='+obj.goods_id+'"><img src="'+ obj.goods_thumb +'" /><span>'+obj.goods_name+'</span><br/><p>'+obj.goods_desc+'</p></a></div>');
+            }
+        }
     }
 });
